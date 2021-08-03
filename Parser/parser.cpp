@@ -61,8 +61,8 @@ unordered_map<string, double> getHeuristic(string airportId, json target) {
   return result;
 }
 
-UnDirectedGraph<string, double> getGraph(json target) {
-  UnDirectedGraph<string, double> result;
+DirectedGraph<string, double> getGraph(json target) {
+  DirectedGraph<string, double> result;
   for (auto &airport : target) {
     string objectId = airport["Airport ID"].get<string>();
     result.insertVertex(objectId, objectId);

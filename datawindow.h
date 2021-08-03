@@ -10,7 +10,9 @@
 #include <string>
 #include <QStringList>
 #include "Graph/UndirectedGraph.h"
+#include "Graph/DirectedGraph.h"
 #include "Graph/Algorithms/astar.h"
+#include "Graph/Algorithms/GreedyBfs.h"
 #include "QMessageBox"
 
 using json = nlohmann::json;
@@ -24,7 +26,7 @@ class dataWindow : public QWidget
     Q_OBJECT
     QString fileName;
     unordered_map<string,string> airportIds;
-    UnDirectedGraph<string, double> graphD;
+    DirectedGraph<string, double> graphD;
     json data;
 public:
     explicit dataWindow(QWidget *parent = nullptr, QString fileName = "");
@@ -36,6 +38,8 @@ private slots:
     void on_destiny_currentTextChanged(const QString &arg1);
 
     void on_calculate_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::dataWindow *ui;

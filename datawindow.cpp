@@ -55,6 +55,27 @@ void dataWindow::on_calculate_clicked()
     for (auto& element: result){
         auto airport = getairportfromid(element,this->data);
         display = display + to_string(index) + " " + airport.name + "-" + airport.airport_ID + "\n";
+        // display = display + to_string(airport.longitude) + ";" + to_string(airport.latitude) + "\n";
+        index++;
+    }
+    QMessageBox displayResult;
+    displayResult.setText(QString::fromStdString(display));
+    displayResult.exec();
+}
+
+
+void dataWindow::on_pushButton_clicked()
+{
+    string destiny = this->ui->destiny->currentText().toStdString();
+    string origin = this->ui->origin->currentText().toStdString();
+    GreedyBfs greedyBfs = GreedyBfs(&this->graphD);
+    vector<string> result = greedyBfs.apply(origin,destiny);
+    string display = "";
+    int index = 1;
+    for (auto& element: result){
+        auto airport = getairportfromid(element,this->data);
+        display = display + to_string(index) + " " + airport.name + "-" + airport.airport_ID + "\n";
+        // display = display + to_string(airport.longitude) + ";" + to_string(airport.latitude) + "\n";
         index++;
     }
     QMessageBox displayResult;

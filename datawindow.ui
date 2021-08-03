@@ -105,11 +105,22 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="calculate">
-     <property name="text">
-      <string>Calcular</string>
-     </property>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>BFS search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="calculate">
+       <property name="text">
+        <string>A*</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
